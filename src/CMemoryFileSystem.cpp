@@ -26,10 +26,7 @@ CMemoryFileSystem::CMemoryFileSystem()
 
 }
 
-CMemoryFileSystem::~CMemoryFileSystem()
-{
-
-}
+CMemoryFileSystem::~CMemoryFileSystem() = default;
 
 void CMemoryFileSystem::Initialize()
 {

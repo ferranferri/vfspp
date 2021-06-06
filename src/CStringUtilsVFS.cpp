@@ -7,6 +7,7 @@
 //
 
 #include "CStringUtilsVFS.h"
+#include <string>
 
 using namespace vfspp;
 

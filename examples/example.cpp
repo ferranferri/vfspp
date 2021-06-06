@@ -12,7 +12,8 @@ int main()
 	std::string zipPassword = "123";
     
     IFileSystemPtr root_fs(new CNativeFileSystem("./"));
-    IFileSystemPtr zip_fs(new CZipFileSystem("password_123.zip", "/", true, zipPassword));
+    IFileSystemPtr zip_fs(new CZipFileSystem("password_123.zip", "/"));
+    //IFileSystemPtr zip_fs(new CZipFileSystem("password_123.zip", "/", true, zipPassword));
     IFileSystemPtr mem_fs(new CMemoryFileSystem());
     
     root_fs->Initialize();
@@ -46,7 +47,7 @@ int main()
     IFilePtr zipFile = vfs->OpenFile(CFileInfo("/zip/newFile.txt"), IFile::ReadWrite);
     if (zipFile && zipFile->IsOpened())
     {
-    	char data[] = "The quick brown fox jumps over the lazy dog\n";
+    	char data[256] = "The quick brown fox jumps over the lazy dog\n";
     	zipFile->Write(reinterpret_cast<uint8_t*>(data), sizeof(data));
     	zipFile->Close();
     }
